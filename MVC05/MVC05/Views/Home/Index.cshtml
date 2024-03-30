@@ -1,0 +1,26 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model TblHanghoa
+<form asp-action="UploadImage" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+        <label asp-for="STenhang"></label>
+            <input asp-for="STenhang" class="form-control" />
+        </div>
+        <div class="form-group">
+        <label asp-for="FGianiemyet"></label>
+        <input asp-for="FGianiemyet" class="form-control" />
+        </div>
+        <div class="form-group">
+        <label asp-for="SDacdiem"></label>
+        <input asp-for="SDacdiem" class="form-control" />
+        </div>
+        <div class="form-group">
+        <label asp-for="SXuatxu"></label>
+        <input asp-for="SXuatxu" class="form-control" />
+        </div>
+        <div class="form-group">
+        <input asp-for="SAnhMinhHoa" type="file" name="file" />
+        </div>
+    <input type="submit" value="Upload" class="btn btn-primary" />
+</form>

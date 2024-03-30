@@ -1,0 +1,47 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<div class="row">
+    <div class="col-md-3">
+    <form>
+    <label>Tên Hàng</label>
+    <input type="text" class="form-control"/>
+    <button type="submit" class="btn btn-primary">Lọc</button>
+    </form>
+    </div>
+</div>
+<div class="row" id="card_sp">
+    
+</div>
+@section Scripts{
+    <script>
+        $(document).ready(function(){
+            $.ajax({
+                url: '/SanPham/dssp',
+                method: 'get',
+                success: function (data) {
+                    
+                    if (data.code == 200) {
+                        console.log(data)
+                        $.each(data.dsSP, function (i,item) {
+                            let tr = '<div class="col-md-4">';
+                            tr += '<div class="card" style="width: 18rem;">';
+                            tr += '<img src="/img/'+item.sAnhMinhHoa+'" class="card-img-top" alt = "..." /> ';
+                            tr += '<div class="card-body">';
+                            tr += '<h5 class="card-title">' + item.sTenhang +'</h5>';
+                            tr += '<p class="card-text">' + item.fGianiemyet +'</p>';
+                            tr += '<a href="#" class="btn btn-primary">thêm vào giỏ hàng</a>';
+                            tr += '</div>';
+                            tr += '</div>';
+                            tr += '</div>';
+                            $('#card_sp').append(tr);
+                        })
+                    }
+                }
+            });
+        });
+
+    </script>
+}
